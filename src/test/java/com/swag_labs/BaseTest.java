@@ -5,6 +5,7 @@ import com.swag_labs.other.TestData;
 import com.swag_labs.pageobjects.CheckoutPage;
 import com.swag_labs.pageobjects.HomePage;
 import com.swag_labs.pageobjects.LoginPage;
+import com.swag_labs.pageobjects.CartPage;
 import com.swag_labs.tests.TestListener;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,8 +22,9 @@ public class BaseTest {
     public LoginPage loginPage;
     public TestData testData;
     public HomePage homePage;
-
     public CheckoutPage checkoutPage;
+
+    public CartPage cartPage;
 
     @BeforeMethod(description = "Opening browser")
     public void startBrowser() {
@@ -30,6 +32,7 @@ public class BaseTest {
         testData = new TestData();
         homePage = new HomePage();
         checkoutPage = new CheckoutPage();
+        cartPage = new CartPage();
         useChromeWithOptions();
     }
 

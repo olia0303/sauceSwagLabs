@@ -24,18 +24,14 @@ public class HomePage extends BasePage{
         return this;
     }
 
-    public HomePage checkYouCart() {
-        $(By.xpath(" //span[contains(text(),'Your Cart')]")).shouldBe(Condition.visible);
+    public HomePage addToCartFleeceJacket() {
+        $("#add-to-cart-sauce-labs-fleece-jacket").click();
         return this;
     }
 
     public HomePage openCartContainer() {
         $("#shopping_cart_container").click();
         return this;
-    }
-
-    public void checkout() {
-        $("#checkout").click();
     }
 
     public void logOut() {
