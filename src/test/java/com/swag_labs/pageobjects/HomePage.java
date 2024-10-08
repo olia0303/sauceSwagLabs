@@ -7,6 +7,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class HomePage extends BasePage{
 
+    private final String ADD_TO_CART_PRODUCT_BUTTON = FIELD_XPATH + "/ancestor::div[2]//button[text()='Add to cart']";
+
     @Override
     public HomePage isPageOpened() {
         $(By.xpath("//span[contains(text(),'Products')]")).shouldBe(Condition.visible);
@@ -19,13 +21,8 @@ public class HomePage extends BasePage{
         return this;
     }
 
-    public HomePage addToCartBackPack() {
-        $("#add-to-cart-sauce-labs-backpack").click();
-        return this;
-    }
-
-    public HomePage addToCartFleeceJacket() {
-        $("#add-to-cart-sauce-labs-fleece-jacket").click();
+    public HomePage addProductToCart(String productName) {
+        $(By.xpath(String.format(ADD_TO_CART_PRODUCT_BUTTON, productName))).click();
         return this;
     }
 

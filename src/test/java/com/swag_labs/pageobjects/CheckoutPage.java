@@ -19,7 +19,7 @@ public class CheckoutPage extends BasePage{
         return this;
     }
 
-    public void clickContinue() {
+    public void continueAction() {
         $("#continue").click();
     }
     public CheckoutPage isCheckoutOverViewPageOpened() {
@@ -27,7 +27,7 @@ public class CheckoutPage extends BasePage{
         return this;
     }
 
-    public void clickFinish() {
+    public void finish() {
         $("#finish").click();
     }
 

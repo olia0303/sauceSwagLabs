@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CartPage extends BasePage{
 
-    private final String FIELD_XPATH = "//div[normalize-space(text())=\"%s\"]";
+    private final String REMOVE_PRODUCT_BUTTON = FIELD_XPATH + "/ancestor::div[2]//button[text()='Remove']";
 
     @Override
     public CartPage isPageOpened() {
@@ -19,11 +19,11 @@ public class CartPage extends BasePage{
         $("#checkout").click();
     }
 
-    public void clickRemoveFleeceJacket() {
-        $("#remove-sauce-labs-fleece-jacket").click();
+    public void removeProduct(String productName) {
+        $(By.xpath(String.format(REMOVE_PRODUCT_BUTTON, productName))).click();
     }
 
-    public boolean productExists(String fieldTitle) {
-        return $(By.xpath(String.format(FIELD_XPATH, fieldTitle))).isDisplayed();
+    public boolean isProductExist(String productName) {
+        return $(By.xpath(String.format(FIELD_XPATH, productName))).isDisplayed();
     }
 }

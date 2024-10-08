@@ -1,7 +1,6 @@
 package com.swag_labs.tests;
 
 import com.swag_labs.BaseTest;
-import com.swag_labs.model.ProductItem;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertFalse;
@@ -22,15 +21,15 @@ public class SwagLabsTest extends BaseTest {
         loginPage.openPage()
                 .logIn(testData.USER, testData.PASS);
         homePage.isPageOpened()
-                .addToCartBackPack()
+                .addProductToCart("Sauce Labs Backpack")
                 .openCartContainer();
         cartPage.isPageOpened()
                      .checkout();
         checkoutPage.isPageOpened()
                      .fillInfo(testData.FIRST_NAME, testData.LAST_NAME, testData.ZIP_CODE)
-                     .clickContinue();
+                     .continueAction();
         checkoutPage.isCheckoutOverViewPageOpened()
-                    .clickFinish();
+                    .finish();
         checkoutPage.checkoutComplete();
     }
 
@@ -39,12 +38,12 @@ public class SwagLabsTest extends BaseTest {
         loginPage.openPage()
                 .logIn(testData.USER, testData.PASS);
         homePage.isPageOpened()
-                .addToCartFleeceJacket()
+                .addProductToCart("Sauce Labs Fleece Jacket")
                 .openCartContainer();
-        assertTrue(cartPage.productExists(ProductItem.SAUCE_LABS_FLEECE.getItem()));
+        assertTrue(cartPage.isProductExist("Sauce Labs Fleece Jacket"));
         cartPage.isPageOpened()
-                .clickRemoveFleeceJacket();
+                .removeProduct("Sauce Labs Fleece Jacket");
         cartPage.checkout();
-        assertFalse(cartPage.productExists(ProductItem.SAUCE_LABS_FLEECE.getItem()));
+        assertFalse(cartPage.isProductExist("Sauce Labs Fleece Jacket"));
     }
 }
