@@ -22,3 +22,4 @@ Module: Checkout overview
 1. Check the added products and valid price total.
 Module: Checkout complete
 1. Check product purchase and check out complete. 
+2. Check all products purschase and check out complete.
