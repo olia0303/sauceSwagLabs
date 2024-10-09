@@ -11,6 +11,7 @@ public class TestData {
     public final String LAST_NAME;
 
     public final String ZIP_CODE;
+
     public TestData() {
         USER = new PropertyManager().get("username");
         PASS = new PropertyManager().get("password");
