@@ -9,7 +9,6 @@ import static com.swag_labs.other.Urls.LOGIN_PAGE;
 
 public class LoginPage extends BasePage{
 
-    private final By ERROR_MESSAGE = By.xpath("//div[@class='error-message-container error']//h3");
     public LoginPage openPage(){
         open(LOGIN_PAGE);
         return this;
@@ -21,11 +20,6 @@ public class LoginPage extends BasePage{
         $("#password").sendKeys(password);
         $("#login-button").click();
         return this;
-    }
-
-    public String getErrorMessage() {
-        String fieldErrorMessage = $(ERROR_MESSAGE).getText();
-        return fieldErrorMessage;
     }
 
     @Override
