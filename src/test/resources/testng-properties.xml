@@ -10,6 +10,7 @@
     <test name="Sub-suite #2" >
         <classes>
             <class name="com.swag_labs.tests.CheckoutTest" />
+            <class name="com.swag_labs.tests.ProductsTest" />
         </classes>
     </test>
 </suite>

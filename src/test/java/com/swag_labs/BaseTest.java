@@ -1,6 +1,7 @@
 package com.swag_labs;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.swag_labs.other.TestData;
 import com.swag_labs.pageobjects.CheckoutPage;
 import com.swag_labs.pageobjects.HomePage;
@@ -48,5 +49,6 @@ public class BaseTest {
 
     @AfterMethod(description = "Closing browser", alwaysRun = true)
     public void stopBrowser() {
-    }
+        Selenide.closeWebDriver();
+        }
 }
