@@ -8,8 +8,9 @@ import java.util.Properties;
 
 @Log4j2
 public class PropertyManager {
-    private String propertyFilePath;
+    private final String propertyFilePath;
     private Properties prop;
+
     public PropertyManager() {
         propertyFilePath = System.getProperty("user.dir") + "/src/main/resources/application.properties";
         log.debug(String.format("Reading properties from %s", propertyFilePath));

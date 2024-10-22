@@ -14,7 +14,7 @@ public class ProductsTest extends BaseTest {
                 .logIn(testData.USER, testData.PASS);
         homePage.isPageOpened();
         homePage.selectValue("Name (A to Z)");
-        List<String> productSortedByNameList = homePage.getProductByName();
+        List<String> productSortedByNameList = homePage.getProductsName();
         String firsProductList = productSortedByNameList.get(0);
         String lastProductList = productSortedByNameList.get(5);
         assertEquals(firsProductList, "Sauce Labs Backpack");
@@ -27,7 +27,7 @@ public class ProductsTest extends BaseTest {
                 .logIn(testData.USER, testData.PASS);
         homePage.isPageOpened();
         homePage.selectValue("Price (low to high)");
-        List<String> productSortedByPiceList = homePage.getProductByPrice();
+        List<String> productSortedByPiceList = homePage.getProductsPrice();
         String firsProductList = productSortedByPiceList.get(0);
         String lastProductList = productSortedByPiceList.get(5);
         assertEquals(firsProductList, "$7.99");

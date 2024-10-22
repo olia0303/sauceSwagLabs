@@ -11,12 +11,12 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     private final String ADD_TO_CART_PRODUCT_BUTTON = FIELD_XPATH + "/ancestor::div[2]//button[text()='Add to cart']";
     private final String SELECT_OPTION_XPATH = "//select//option[contains(text(),'%s')]";
-    private final String ITEM_NAME = "//div[contains(@class,'inventory_item_name')]";
-    private final String ITEM_PRICE = "//div[contains(@class,'inventory_item_price')]";
+    private final By ITEM_NAME = By.cssSelector("div.inventory_item_name");
+    private final By ITEM_PRICE = By.cssSelector("div.inventory_item_price");
 
     @Override
     public HomePage isPageOpened() {
@@ -45,8 +45,8 @@ public class HomePage extends BasePage{
         return this;
     }
 
-    public List<String> getProductByName() {
-        ElementsCollection productElements = $$(By.xpath(String.format(ITEM_NAME)));
+    public List<String> getProductsName() {
+        ElementsCollection productElements = $$(ITEM_NAME);
         List<String> actualProductNamesList = new ArrayList<>();
         for (SelenideElement productElement: productElements) {
             actualProductNamesList.add(productElement.getText());
@@ -54,8 +54,8 @@ public class HomePage extends BasePage{
         return actualProductNamesList;
     }
 
-    public List<String> getProductByPrice() {
-        ElementsCollection productElements = $$(By.xpath(String.format(ITEM_PRICE)));
+    public List<String> getProductsPrice() {
+        ElementsCollection productElements = $$(ITEM_PRICE);
         List<String> actualProductPriceList = new ArrayList<>();
         for (SelenideElement productElement: productElements) {
             actualProductPriceList.add(productElement.getText());
