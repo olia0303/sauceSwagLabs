@@ -40,6 +40,7 @@ public class BaseTest {
     public void useChromeWithOptions() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
+        options.addArguments("--headless");
         Map<String, Object> prefs = new HashMap<String, Object>();
         prefs.put("credentials_enable_service", false);
         prefs.put("password_manager_enabled", false);
