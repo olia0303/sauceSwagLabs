@@ -6,7 +6,7 @@ import utils.PropertyManager;
 public class TestData {
     public final String USER;
     public final String PASS;
-    private Faker generator;
+    private final Faker generator;
     public final String FIRST_NAME;
     public final String LAST_NAME;
 

@@ -3,7 +3,7 @@ package com.swag_labs.tests;
 import com.swag_labs.BaseTest;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class CheckoutTest extends BaseTest {
 
@@ -17,7 +17,7 @@ public class CheckoutTest extends BaseTest {
         cartPage.isPageOpened()
                 .checkout();
         checkoutPage.isPageOpened()
-                .fillInfo(testData.FIRST_NAME,"", testData.ZIP_CODE)
+                .fillInfo(testData.FIRST_NAME, "", testData.ZIP_CODE)
                 .continueAction();
         assertEquals(loginPage.getErrorMessage(), "Error: Last Name is required");
     }
@@ -32,7 +32,7 @@ public class CheckoutTest extends BaseTest {
         cartPage.isPageOpened()
                 .checkout();
         checkoutPage.isPageOpened()
-                .fillInfo("",testData.LAST_NAME, testData.ZIP_CODE)
+                .fillInfo("", testData.LAST_NAME, testData.ZIP_CODE)
                 .continueAction();
         assertEquals(loginPage.getErrorMessage(), "Error: First Name is required");
     }
@@ -47,7 +47,7 @@ public class CheckoutTest extends BaseTest {
         cartPage.isPageOpened()
                 .checkout();
         checkoutPage.isPageOpened()
-                .fillInfo(testData.FIRST_NAME, testData.LAST_NAME,"")
+                .fillInfo(testData.FIRST_NAME, testData.LAST_NAME, "")
                 .continueAction();
         assertEquals(loginPage.getErrorMessage(), "Error: Postal Code is required");
     }

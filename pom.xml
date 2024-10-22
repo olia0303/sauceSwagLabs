@@ -24,6 +24,7 @@
         <allure.testng.version>2.29.0</allure.testng.version>
         <java.faker.version>1.0.2</java.faker.version>
         <allure.java.commons.version>2.29.0</allure.java.commons.version>
+        <suiteXmlFile>src/test/resources/testng-properties.xml</suiteXmlFile>
     </properties>
 
     <build>
@@ -44,7 +45,7 @@
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>

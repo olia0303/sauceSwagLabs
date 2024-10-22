@@ -1,11 +1,12 @@
 package com.swag_labs;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.swag_labs.other.TestData;
+import com.swag_labs.pageobjects.CartPage;
 import com.swag_labs.pageobjects.CheckoutPage;
 import com.swag_labs.pageobjects.HomePage;
 import com.swag_labs.pageobjects.LoginPage;
-import com.swag_labs.pageobjects.CartPage;
 import com.swag_labs.tests.TestListener;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -48,5 +49,6 @@ public class BaseTest {
 
     @AfterMethod(description = "Closing browser", alwaysRun = true)
     public void stopBrowser() {
-    }
+        Selenide.closeWebDriver();
+        }
 }

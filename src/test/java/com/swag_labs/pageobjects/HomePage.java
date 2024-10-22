@@ -1,13 +1,22 @@
 package com.swag_labs.pageobjects;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$;
+import java.util.ArrayList;
+import java.util.List;
 
-public class HomePage extends BasePage{
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
+public class HomePage extends BasePage {
 
     private final String ADD_TO_CART_PRODUCT_BUTTON = FIELD_XPATH + "/ancestor::div[2]//button[text()='Add to cart']";
+    private final String SELECT_OPTION_XPATH = "//select//option[contains(text(),'%s')]";
+    private final By ITEM_NAME = By.cssSelector("div.inventory_item_name");
+    private final By ITEM_PRICE = By.cssSelector("div.inventory_item_price");
 
     @Override
     public HomePage isPageOpened() {
@@ -29,6 +38,29 @@ public class HomePage extends BasePage{
     public HomePage openCartContainer() {
         $("#shopping_cart_container").click();
         return this;
+    }
+
+    public HomePage selectValue(String option) {
+        $(By.xpath(String.format(SELECT_OPTION_XPATH, option))).click();
+        return this;
+    }
+
+    public List<String> getProductsName() {
+        ElementsCollection productElements = $$(ITEM_NAME);
+        List<String> actualProductNamesList = new ArrayList<>();
+        for (SelenideElement productElement: productElements) {
+            actualProductNamesList.add(productElement.getText());
+        }
+        return actualProductNamesList;
+    }
+
+    public List<String> getProductsPrice() {
+        ElementsCollection productElements = $$(ITEM_PRICE);
+        List<String> actualProductPriceList = new ArrayList<>();
+        for (SelenideElement productElement: productElements) {
+            actualProductPriceList.add(productElement.getText());
+        }
+        return actualProductPriceList;
     }
 
     public void logOut() {

@@ -6,11 +6,12 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class CartPage extends BasePage{
+public class CartPage extends BasePage {
 
     private final String REMOVE_PRODUCT_BUTTON = FIELD_XPATH + "/ancestor::div[2]//button[text()='Remove']";
     private final String PRODUCT_PRICE = "//div[text()='%s']//ancestor::div[@class='cart_item']//div[@class='inventory_item_price']";
     private final By PRODUCT_ITEM = By.cssSelector(".cart_item");
+
     @Override
     public CartPage isPageOpened() {
         $(By.xpath(" //span[contains(text(),'Your Cart')]")).shouldBe(Condition.visible);
